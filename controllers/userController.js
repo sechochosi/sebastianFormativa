@@ -1,6 +1,5 @@
 import User from "../models/User.js";
 
-// Obtener_fijo
 export const getMyProfile = async (req, res) => {
   try {
     const user = await User.findByPk(req.user.id, {
@@ -15,7 +14,6 @@ export const getMyProfile = async (req, res) => {
   }
 };
 
-// Obtener todos
 export const getAllUsers = async (req, res) => {
   try {
     if (req.user.role !== "admin") {

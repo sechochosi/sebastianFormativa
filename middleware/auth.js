@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken";
 
-// Validar token y extraer user
 function authenticate(req, res, next) {
   const auth = req.headers.authorization;
   if (!auth) return res.status(401).json({ error: "Token requerido" });
@@ -15,7 +14,6 @@ function authenticate(req, res, next) {
   }
 }
 
-// Validar Rol
 function authorize(...allowedRoles) {
   return (req, res, next) => {
     if (!req.user || !allowedRoles.includes(req.user.role)) {
